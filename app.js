@@ -1,8 +1,12 @@
-const express = require("express");
+import express from "express";
 const app = express();
+import facadeMethod from "./routes/routeFacade.js";
 
 
-const connection = require("./db.js");
+import connection from "./db.js";
+
+
+
 connection.once("open", () => console.log("DB Connected"));
 connection.on("error", () => console.log("Error"));
 
@@ -11,8 +15,8 @@ app.use(
     extended: false,
   })
 ); 
-app.use("/", require("./routes/urlDirectRoute"));
-app.use("/api/url", require("./routes/urlRoute"));
+app.use("/", facadeMethod.urlDirectRoute);
+app.use("/api/url",facadeMethod.urlRoute);
 
 
 const PORT = process.env.PORT || 5000;

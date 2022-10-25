@@ -1,10 +1,10 @@
-const express = require("express");
-const validUrl = require("valid-url");
-const { generateString } = require("../helper/codeHash");
+import express from "express";
+import validUrl from "valid-url"
+import { generateString } from "../helper/codeHash.js";
 
 const router = express.Router();
 
-const Url = require("../models/urlModel");
+import Url from "../models/urlModel.js";
 
 const baseUrl = "http:localhost:5000";
 
@@ -15,8 +15,7 @@ router.post("/shorten", async (req, res) => {
     return res.status(401).json("Invalid base URL");
   }
 
-  const urlCode = generateString(6);
-  console.log(urlCode);
+  const urlCode = generateString(Math.floor(Math.random() * 6));
 
   if (validUrl.isUri(longUrl)) {
     try {
@@ -46,4 +45,4 @@ router.post("/shorten", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

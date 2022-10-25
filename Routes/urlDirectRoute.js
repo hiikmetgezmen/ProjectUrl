@@ -1,8 +1,8 @@
-const express = require("express");
+import express from "express";
 
 const router = express.Router();
 
-const Url = require("../models/urlModel");
+import Url from "../models/urlModel.js";
 
 router.get("/:code", async (req, res) => {
   try {
@@ -20,4 +20,4 @@ router.get("/:code", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;

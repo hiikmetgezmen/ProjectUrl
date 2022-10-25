@@ -10,4 +10,4 @@ function generateString(length) {
   return result;
 }
 
-module.exports = { generateString };
+export { generateString };

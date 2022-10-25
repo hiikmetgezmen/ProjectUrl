@@ -1,10 +1,13 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-// instantiate a mongoose schema
+
+
+
 const URLSchema = new mongoose.Schema({
   urlCode: String,
   longUrl: String,
   shortUrl: String,
 });
 
-module.exports = mongoose.model("Url", URLSchema);
+const urlmodel = mongoose.model("Url", URLSchema);
+export default urlmodel;
